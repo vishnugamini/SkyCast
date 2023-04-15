@@ -1,4 +1,4 @@
-body {
+body{
     color: #333333;
     font-family: Arial, Helvetica, sans-serif;
     max-width: 650px;
@@ -8,6 +8,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+p{
+  color: #333333;
+  font-family: Arial, Helvetica, sans-serif;
+
 }
 
 .main-content{
