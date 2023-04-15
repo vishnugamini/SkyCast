@@ -20,6 +20,8 @@ hbs.registerPartials(partialsPath)
 //Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
+const port = process.env.PORT || 3000
+
 let data = undefined
 
 app.get('',(req,res) => {
@@ -112,6 +114,6 @@ app.get('*',(req,res) => {
     })
 })
 
-app.listen(3000, ()=>{
-    console.log('Sever is up on port 3000.')
+app.listen(port, ()=>{
+    console.log('Sever is up on port'+port+'.')
 })

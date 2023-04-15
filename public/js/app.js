@@ -19,7 +19,7 @@ button.addEventListener('click',(e) => {
     chance_of_rain.textContent ="Loading..."
     weather_icon.src = ""
     error.textContent = ""
-    fetch('http://localhost:3000/weather?address='+location_provided).then((response) => {
+    fetch('/weather?address='+location_provided).then((response) => {
         response.json().then((data) => {
             if(data.error){
                 detailed_view.classList.add("hidden")
