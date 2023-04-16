@@ -44,6 +44,32 @@ app.get('/help',(req,res) => {
 
     })
 })
+app.get('/geoweather',(req,res) => {
+    if(!req.query.latitude && !req.query.longitude){
+       res.send({
+        error:"You must provide access to your location"
+       })
+       return
+    }
+    forecast(req.query.latitude,req.query.longitude,(error,{temperature,chance_of_rain,weather_description,weather_icon} = {}) =>{
+        // if(error){
+        //     res.send({
+        //         error:error
+        //     })
+        //     return
+        // }
+        res.send({
+            address_asked:req.query.address,
+            temperature,
+            chance_of_rain,
+            weather_description,
+            weather_icon
+        })
+        
+    })
+    
+})
+
 
 app.get('/weather',(req,res)=>{
 
@@ -84,9 +110,10 @@ app.get('/weather',(req,res)=>{
     })
 })
 
-app.get('/detailedWeatherView',(req,res) => {
-    res.send(data)
-})
+
+// app.get('/detailedWeatherView',(req,res) => {
+//     res.send(data)
+// })
 
 app.get('/details',(req,res) => {
     res.render('details',{
