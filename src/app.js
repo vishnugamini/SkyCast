@@ -22,8 +22,6 @@ app.use(express.static(publicDirectoryPath))
 
 const port = process.env.PORT || 3000
 
-let data = undefined
-
 app.get('',(req,res) => {
     res.render('index',{
         title : "Weather",
@@ -72,6 +70,7 @@ app.get('/weather',(req,res)=>{
                 return
             }
             res.send({
+                whole_body,
                 address_asked:req.query.address,
                 location,
                 temperature,
@@ -79,7 +78,7 @@ app.get('/weather',(req,res)=>{
                 weather_description,
                 weather_icon
             })
-            data = whole_body
+            
         })
 
     })
@@ -115,5 +114,5 @@ app.get('*',(req,res) => {
 })
 
 app.listen(port, ()=>{
-    console.log('Sever is up on port'+port+'.')
+    console.log('Sever is up on port'+port+' .')
 })
