@@ -1,6 +1,6 @@
-# WeatherWeb
+# SkyCast
 
-WeatherWeb is a simple weather application that provides current weather information for locations around the world.
+SkyCast is a weather application that provides current weather information for locations around the world.
 
 ## Features
 
